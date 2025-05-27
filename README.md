@@ -15,11 +15,15 @@ O objetivo deste projeto é implementar uma aplicação em linguagem **C** que u
 
 ## 📁 Estrutura do Repositório
 
-### 📦 tema-11-sudoku-paralelo
-├── tema11.c # Código-fonte em C com uso de pthreads
-├── slide-apresentacao.pdf # Slides utilizados para a apresentação
-├── diagrama-funcionamento.png # Diagrama ilustrando a lógica do programa
-└── README.md # Este arquivo
+### 📦 JasmimVinicius_ws_OS_2025
+JasmimVinicius_ws_OS_2025/
+├── tema11.c                 // código-fonte em C com uso de pthreads
+
+├── slide-apresentacao.pdf   // slides utilizados para a apresentação
+
+├── diagrama-funcionamento.png // diagrama ilustrando a lógica do programa
+
+└── README.md                // este arquivo
 
 ---
 
