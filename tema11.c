@@ -263,26 +263,15 @@ void carregar_sudokus() {
         {3,4,5,2,8,6,1,7,9}
     };
 
-    // Erro na linha
+    // Inserindo 5 na Linha 1 Coluna 2
     for (int i = 0; i < SIZE; i++)
         for (int j = 0; j < SIZE; j++)
             sudokus[3][i][j] = base[i][j];
     sudokus[3][0][1] = 5;
 
-    // Erro na coluna
-    for (int i = 0; i < SIZE; i++)
-        for (int j = 0; j < SIZE; j++)
-            sudokus[4][i][j] = base[i][j];
-    sudokus[4][1][1] = 6;
-
-    // Erro no bloco
-    for (int i = 0; i < SIZE; i++)
-        for (int j = 0; j < SIZE; j++)
-            sudokus[5][i][j] = base[i][j];
-    sudokus[5][1][1] = 9;
 }
 
-// -------------------- Main
+// -------------------- Main ---------------------
 int main() {
     carregar_sudokus();
 
@@ -301,7 +290,7 @@ int main() {
     }
 
     printf("\n===== PARTE 2: VALIDAR COM ERROS =====\n");
-    for (int i = 3; i < 6; i++) {
+    for (int i = 3; i < 4; i++) {
         imprime_sudoku(i);
         printf(" Iniciando validação do Sudoku %d...\n", i + 1);
         validar_sudoku(i);
