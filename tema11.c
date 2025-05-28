@@ -89,14 +89,14 @@ void *verifica_linha(void *param) {
     for (int j = 0; j < SIZE; j++) {
         int num = sudokus[sudoku_id][linha][j];
         if (num < 1 || num > 9 || check[num - 1] == 1) {
-            printf("❌ Thread Linha %d do Sudoku %d encontrou erro!\n", linha + 1, sudoku_id + 1);
+            printf(" Thread Linha %d do Sudoku %d encontrou erro!\n", linha + 1, sudoku_id + 1);
             pthread_exit(NULL);
         }
         check[num - 1] = 1;
     }
 
     linha_valida[linha] = 1;
-    printf("✅ Thread Linha %d do Sudoku %d finalizada com sucesso!\n", linha + 1, sudoku_id + 1);
+    printf(" Thread Linha %d do Sudoku %d finalizada com sucesso!\n", linha + 1, sudoku_id + 1);
     pthread_exit(NULL);
 }
 
@@ -109,14 +109,14 @@ void *verifica_coluna(void *param) {
     for (int i = 0; i < SIZE; i++) {
         int num = sudokus[sudoku_id][i][coluna];
         if (num < 1 || num > 9 || check[num - 1] == 1) {
-            printf("❌ Thread Coluna %d do Sudoku %d encontrou erro!\n", coluna + 1, sudoku_id + 1);
+            printf(" Thread Coluna %d do Sudoku %d encontrou erro!\n", coluna + 1, sudoku_id + 1);
             pthread_exit(NULL);
         }
         check[num - 1] = 1;
     }
 
     coluna_valida[coluna] = 1;
-    printf("✅ Thread Coluna %d do Sudoku %d finalizada com sucesso!\n", coluna + 1, sudoku_id + 1);
+    printf(" Thread Coluna %d do Sudoku %d finalizada com sucesso!\n", coluna + 1, sudoku_id + 1);
     pthread_exit(NULL);
 }
 
@@ -133,7 +133,7 @@ void *verifica_bloco(void *param) {
         for (int j = coluna_inicio; j < coluna_inicio + 3; j++) {
             int num = sudokus[sudoku_id][i][j];
             if (num < 1 || num > 9 || check[num - 1] == 1) {
-                printf("❌ Thread Bloco (%d,%d) do Sudoku %d encontrou erro!\n",
+                printf(" Thread Bloco (%d,%d) do Sudoku %d encontrou erro!\n",
                        linha_inicio / 3 + 1, coluna_inicio / 3 + 1, sudoku_id + 1);
                 pthread_exit(NULL);
             }
@@ -142,7 +142,7 @@ void *verifica_bloco(void *param) {
     }
 
     bloco_valida[bloco] = 1;
-    printf("✅ Thread Bloco (%d,%d) do Sudoku %d finalizada com sucesso!\n",
+    printf(" Thread Bloco (%d,%d) do Sudoku %d finalizada com sucesso!\n",
            linha_inicio / 3 + 1, coluna_inicio / 3 + 1, sudoku_id + 1);
     pthread_exit(NULL);
 }
@@ -196,9 +196,9 @@ void validar_sudoku(int sudoku_id) {
     }
 
     if (valido) {
-        printf("✅ Sudoku %d é VÁLIDO!\n\n", sudoku_id + 1);
+        printf(" Sudoku %d é VÁLIDO!\n\n", sudoku_id + 1);
     } else {
-        printf("❌ Sudoku %d é INVÁLIDO!\n\n", sudoku_id + 1);
+        printf(" Sudoku %d é INVÁLIDO!\n\n", sudoku_id + 1);
     }
 }
 
@@ -289,21 +289,21 @@ int main() {
     printf("\n===== PARTE 1: RESOLVER + VALIDAR =====\n");
     for (int i = 0; i < 3; i++) {
         imprime_sudoku(i);
-        printf("🧠 Resolvendo Sudoku %d...\n", i + 1);
+        printf(" Resolvendo Sudoku %d...\n", i + 1);
         if (resolver_sudoku(i)) {
-            printf("✅ Sudoku %d resolvido com sucesso!\n", i + 1);
+            printf(" Sudoku %d resolvido com sucesso!\n", i + 1);
         } else {
-            printf("❌ Sudoku %d não tem solução!\n", i + 1);
+            printf(" Sudoku %d não tem solução!\n", i + 1);
         }
         imprime_sudoku(i);
-        printf("🔍 Iniciando validação do Sudoku %d...\n", i + 1);
+        printf(" Iniciando validação do Sudoku %d...\n", i + 1);
         validar_sudoku(i);
     }
 
     printf("\n===== PARTE 2: VALIDAR COM ERROS =====\n");
     for (int i = 3; i < 6; i++) {
         imprime_sudoku(i);
-        printf("🔍 Iniciando validação do Sudoku %d...\n", i + 1);
+        printf(" Iniciando validação do Sudoku %d...\n", i + 1);
         validar_sudoku(i);
     }
 
